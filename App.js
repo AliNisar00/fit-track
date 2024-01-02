@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import AccountLoginScreen from './src/screens/AccountLoginScreen';
+import AccountSignupScreen from './src/screens/AccountSignupScreen';
 
 const theme = {
   ...DefaultTheme,
@@ -25,6 +26,7 @@ const navigator = createStackNavigator(
     Home: HomeScreen,
     Login: LoginScreen,
     AccountLogin: AccountLoginScreen,
+    AccountSignup: AccountSignupScreen,
   },
   {
     initialRouteName: 'Login',

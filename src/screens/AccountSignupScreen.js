@@ -1,40 +1,28 @@
-// LoginScreen.js
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Button, Title, Subheading } from "react-native-paper";
 
-const LoginScreen = ({ navigation }) => {
+const AccountSignupScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.contentContainer}>
-                <Title style={styles.title}>Welcome to FitTrack</Title>
-                <Subheading style={styles.subtitle}>Your personal fitness companion</Subheading>
-
-                {/* Add any login or authentication components here */}
+                <Title style={styles.title}>This is a placeholder page for account sign up.</Title>
+                <Subheading style={styles.subtitle}>Press the button below to continue to Home screen.</Subheading>
             </View>
-
             <View style={styles.buttonContainer}>
                 <Button
                     mode="contained"
-                    onPress={() => navigation.navigate('AccountLogin')}
+                    onPress={() => navigation.navigate('Home')}
                     style={styles.button}
                 >
-                    Login
-                </Button>
-
-                <Button
-                    mode="outlined"
-                    onPress={() => navigation.navigate('AccountSignup')}
-                    style={styles.button}
-                >
-                    Sign Up
+                    Continue...
                 </Button>
             </View>
         </View>
     );
 };
 
-LoginScreen.navigationOptions = {
+AccountSignupScreen.navigationOptions = {
     headerShown: false,
 };
 
@@ -69,4 +57,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginScreen;
+export default AccountSignupScreen;
