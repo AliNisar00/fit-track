@@ -34,6 +34,10 @@ const LoginScreen = ({ navigation }) => {
     );
 };
 
+LoginScreen.navigationOptions = {
+    headerShown: false,
+};
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
