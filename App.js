@@ -1,7 +1,10 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+//import { createAppContainer } from 'react-navigation';
+//import { createStackNavigator } from 'react-navigation-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/HomeScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import AccountLoginScreen from './src/screens/AccountLoginScreen';
@@ -21,6 +24,20 @@ const theme = {
   },
 };
 
+const Stack = createStackNavigator();
+
+function MainStack() {
+  return (
+    <Stack.Navigator initialRouteName={'Login'} screenOptions={ {headerShown: false} }>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="AccountLogin" component={AccountLoginScreen} />
+      <Stack.Screen name="AccountSignup" component={AccountSignupScreen} />
+    </Stack.Navigator>
+  );
+}
+
+/*
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
@@ -35,13 +52,16 @@ const navigator = createStackNavigator(
     },
   }
 );
+*/
 
-const AppContainer = createAppContainer(navigator);
+//const AppContainer = createAppContainer(navigator);
 
 const App = () => {
   return (
     <PaperProvider theme={theme}>
-      <AppContainer />
+      <NavigationContainer>
+        <MainStack />
+      </NavigationContainer>
     </PaperProvider>
   );
 };

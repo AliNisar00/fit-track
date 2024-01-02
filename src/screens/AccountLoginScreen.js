@@ -22,9 +22,11 @@ const AccountLoginScreen = ({ navigation }) => {
     );
 };
 
+/*
 AccountLoginScreen.navigationOptions = {
     headerShown: false,
 };
+*/
 
 const styles = StyleSheet.create({
     container: {

@@ -28,9 +28,11 @@ const HomeScreen = ({ navigation }) => {
     );
 };
 
+/*
 HomeScreen.navigationOptions = {
     headerShown: false,
 };
+*/
 
 const styles = StyleSheet.create({
     container: {
