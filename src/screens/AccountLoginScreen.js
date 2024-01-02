@@ -12,7 +12,7 @@ const AccountLoginScreen = ({ navigation }) => {
             <View style={styles.buttonContainer}>
                 <Button
                     mode="contained"
-                    onPress={() => navigation.navigate('Home')}
+                    onPress={() => navigation.navigate('Tab')}
                     style={styles.button}
                 >
                     Continue...
