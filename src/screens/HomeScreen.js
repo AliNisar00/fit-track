@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button, Title, Subheading } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const HomeScreen = ({ navigation }) => {
     return (
@@ -11,10 +12,10 @@ const HomeScreen = ({ navigation }) => {
             {/* Add buttons or components for various features */}
             <Button
                 mode="contained"
-                onPress={() => navigation.navigate('Workout')}
+                onPress={() => navigation.navigate('StepCounter')}
                 style={styles.button}
             >
-                Start Workout
+                Start Step Counter
             </Button>
 
             <Button
