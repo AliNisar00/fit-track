@@ -6,7 +6,7 @@ const useStepCounter = () => {
 
   useEffect(() => {
     const subscription = new StepCounter({
-      updateInterval: 1000, // Set the update interval as needed
+      updateInterval: 1000,
     });
 
     subscription.start();
