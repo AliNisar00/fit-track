@@ -5,25 +5,7 @@ import { Button, Title, Subheading } from "react-native-paper";
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Title style={styles.title}>FitTrack</Title>
-            <Subheading style={styles.subtitle}>Welcome to your fitness journey!</Subheading>
-
-            {/* Add buttons or components for various features */}
-            <Button
-                mode="contained"
-                onPress={() => navigation.navigate('Workout')}
-                style={styles.button}
-            >
-                Start Workout
-            </Button>
-
-            <Button
-                mode="outlined"
-                onPress={() => navigation.navigate('Stats')}
-                style={styles.button}
-            >
-                View Stats
-            </Button>
+            
         </View>
     );
 };
