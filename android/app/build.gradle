@@ -77,9 +77,9 @@ def enableProguardInReleaseBuilds = (findProperty('android.enableProguardInRelea
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
-    ndkVersion rootProject.ext.ndkVersion
-
     compileSdkVersion 33 //rootProject.ext.compileSdkVersion
+
+    ndkVersion 33 //rootProject.ext.ndkVersion
 
     namespace "com.fittrack"
     defaultConfig {
