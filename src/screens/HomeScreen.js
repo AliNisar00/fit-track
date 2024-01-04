@@ -1,11 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button, Title, Subheading } from "react-native-paper";
+import { ProgressCircle } from 'react-native-svg-charts'
 
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            
+            <ProgressCircle style={styles.progressCircle} progress={0.7} progressColor={'rgb(134, 65, 244)'} />
         </View>
     );
 };
@@ -21,14 +22,14 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'black', // Set background color to black
+        backgroundColor: 'black',
         padding: 16,
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 16,
-        color: 'white', // Set text color to white
+        color: 'white',
     },
     subtitle: {
         fontSize: 18,
@@ -36,6 +37,10 @@ const styles = StyleSheet.create({
     },
     button: {
         marginVertical: 8,
+    },
+    progressCircle: {
+        height: 200,
+        marginVertical: 16,
     },
 });
 
