@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { Avatar, Button, Card, Text, Title, Subheading  } from "react-native-paper";
 import { LineChart } from 'react-native-chart-kit';
+import CardLarge from '../../Components/CardLarge'
 
 const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -17,7 +17,7 @@ const data = {
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-
+        <CardLarge></CardLarge>
         </View>
     );
 };
