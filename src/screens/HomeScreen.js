@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button, Title, Subheading } from "react-native-paper";
 import { LineChart } from 'react-native-chart-kit';
+import { Avatar, Button, Card, Text } from 'react-native-paper';
 
 const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -14,6 +15,15 @@ const data = {
     ],
 };
 
+const HomeScreen = ({ navigation }) => {
+    return (
+        <View style={styles.container}>
+
+        </View>
+    );
+};
+
+/*
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
@@ -48,6 +58,7 @@ const HomeScreen = ({ navigation }) => {
         </View>
     );
 };
+*/
 
 /*
 HomeScreen.navigationOptions = {
