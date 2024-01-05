@@ -1,8 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Button, Title, Subheading } from "react-native-paper";
+import { View, StyleSheet } from "react-native";
+import { Avatar, Button, Card, Text, Title, Subheading  } from "react-native-paper";
 import { LineChart } from 'react-native-chart-kit';
-import { Avatar, Button, Card, Text } from 'react-native-paper';
 
 const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
