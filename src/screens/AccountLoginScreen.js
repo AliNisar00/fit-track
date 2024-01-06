@@ -4,6 +4,9 @@ import { View, StyleSheet } from "react-native";
 import { Button, Title, TextInput, Subheading, ActivityIndicator } from "react-native-paper";
 import { FIREBASE_AUTH } from "../../FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import Toast from 'react-native-toast-message';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const AccountLoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -11,18 +14,33 @@ const AccountLoginScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const auth = FIREBASE_AUTH;
 
+
   const signIn = async () => {
     setLoading(true);
     try {
-        const response = await signInWithEmailAndPassword(auth, email, password);
-        console.log(response);
+
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      console.log(response);
+
+      // Retrieve user's name from AsyncStorage using the Firebase user ID
+      const userName = await AsyncStorage.getItem(`user_${response.user.uid}`);
+  
+      // Show a toast notification after successful login
+      Toast.show({
+        type: 'success',
+        text1: 'Logged in',
+      });
+  
+      // Navigate to TabNavigator upon successful login
+      navigation.navigate('Tab', { userName });
     } catch (error) {
-        console.log(error);
-        alert("Sign in failed: " + error.message);
+      console.log(error);
+      alert('Sign in failed: ' + error.message);
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-  }
+  };
+
 
   return (
     <View style={styles.container}>
@@ -96,7 +114,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   buttonContainer: {
-    width: "50%"
+    width: "100%"
   },
   button: {
     marginVertical: 18,

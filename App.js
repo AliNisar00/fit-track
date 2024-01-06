@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import Toast from 'react-native-toast-message';
 
 //import { createAppContainer } from 'react-navigation';
 //import { createStackNavigator } from 'react-navigation-stack';
@@ -59,13 +60,17 @@ const navigator = createStackNavigator(
 //const AppContainer = createAppContainer(navigator);
 
 const App = () => {
-  return (
-    <PaperProvider theme={theme}>
-      <NavigationContainer>
-        <MainStack />
-      </NavigationContainer>
-    </PaperProvider>
-  );
-};
+    return (
+      <PaperProvider theme={theme}>
+        <NavigationContainer>
+          <MainStack />
+        </NavigationContainer>
+        {/* Toast Notification */}
+        <Toast ref={(ref) => Toast.setRef(ref)} />
+      </PaperProvider>
+    );
+  };
+  
+  export default App;
 
-export default App;
+

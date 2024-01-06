@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button, Title, Subheading } from "react-native-paper";
 import { LineChart } from 'react-native-chart-kit';
+import { signOut } from 'firebase/auth';
+import { FIREBASE_AUTH } from '../../FirebaseConfig';
+import Toast from 'react-native-toast-message';
+
 
 const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -14,9 +18,38 @@ const data = {
     ],
 };
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
+
+    const auth = FIREBASE_AUTH;
+    const [userName, setUserName] = useState("");
+
+    useEffect(() => {
+        // Retrieve the userName from the route params
+        const { userName } = route.params || {};
+        setUserName(userName);
+    }, [route.params]);
+
+    const handleLogout = async () => {
+        try {
+            // Sign out the user
+            await signOut(auth);
+
+            // Show a toast notification after successful logout
+            Toast.show({
+                type: 'success',
+                text1: 'Logged out',
+            });
+
+            // Navigate back to the login screen
+            navigation.navigate('Login');
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
+    };
+
     return (
         <View style={styles.container}>
+            <Text style={styles.title}>Hello {userName}</Text>
             <Text style={styles.subtitle}>Bezier Line Chart</Text>
             <LineChart
                 data={data}
@@ -45,6 +78,13 @@ const HomeScreen = ({ navigation }) => {
                 borderRadius: 16,
                 }}
             />
+            <Button
+                mode="contained"
+                onPress={handleLogout}
+                style={styles.button}
+            >
+                Logout
+            </Button>
         </View>
     );
 };
