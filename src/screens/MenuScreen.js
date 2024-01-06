@@ -8,12 +8,12 @@ const MenuScreen = () => {
 
   const readItemFromStorage = async () => {
     const item = await getItem();
-    setValue(item);
+    setValue(item); // this function call ensures that the last stored value is displayed on app startup
   };
 
   const writeItemToStorage = async (newValue) => {
     await setItem(newValue);
-    setValue(newValue);
+    setValue(newValue); // this function call allows new values to be displayed during runtime
   };
 
   useEffect(() => {
